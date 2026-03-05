@@ -1,9 +1,15 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function GuidePage() {
   return (
-    <div style={{ maxWidth: '800px' }}>
-      {/* Tiêu đề trang */}
+    <motion.div 
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      style={{ maxWidth: '800px' }}
+    >
       <h2 className="page-title">Hướng dẫn sử dụng</h2>
       <p className="page-subtitle">Làm quen với hệ thống TeiCloud PaaS chỉ trong 3 bước.</p>
 
@@ -23,6 +29,6 @@ export default function GuidePage() {
           Quá trình khởi tạo và đồng bộ mã nguồn lên mạng lưới toàn cầu của Cloudflare sẽ mất khoảng <strong style={{ color: 'var(--tei-success)'}}>30 đến 60 giây</strong>.
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
